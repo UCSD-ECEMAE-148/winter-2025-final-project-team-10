@@ -1,10 +1,10 @@
 # <div align="center">Path Finder</div>
-![image](images\UCSDLogo_JSOE_BlueGold.png)
+![image](images/UCSDLogo_JSOE_BlueGold.png)
 ### <div align="center"> MAE 148 Final Project </div>
 #### <div align="center"> Team 10 Winter 2025 </div>
 
 <div align="center">
-    <img src="images\ucsdrobocar-148-07.webp" width="800" height="600">
+    IMAGE here
 </div>
 
 ## Table of Contents
