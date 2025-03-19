@@ -45,7 +45,7 @@
 
 ### Nice to Have
 * Use ["MapViz"](https://swri-robotics.github.io/mapviz/) to visualize the realtime location of the robot, and click on the map to publish coordinate for the robot to follow.
- - Could use MapViz to publish coordinate but the map is not showing
+  - Could use MapViz to publish and read coordinate but the map is not showing
 <hr>
 
 ## Accomplishments
@@ -70,6 +70,11 @@
 
 ### Overall Architecture
 
+### MapViz
+  - Ros2 tool to load tile maps and display GPS coordinate inputed to the corresponding Ros2 topic.
+  - However, after trying with the built-in tile map, Google Maps, Stadia maps with working API keys, and [offline Google Map Tile map](https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite), we could not make the tile map to show on MapViz.
+  - But we did succeed to let MapViz read mock coordinate data by manually publishing data, and published coordinate by clicking on the MapViz interface.
+  ![mapviz_screenshot](images/MapViz%20Screenshot.png)
 <hr>
 
 ## Hardware 
@@ -111,7 +116,7 @@ __Circuit Diagram__
 Our team made use of a select range of electronic components, primarily focusing on the OAK-D Lite camera, Jetson NANO, a GNSS board / GPS, and an additional Seeed Studio XIAO nRF52840 Sense (for IMU usage).
 Our circuit assembly process was guided by a circuit diagram provided by our class TAs.
 
-<img src="images\circuitDiagram.PNG" height="300">
+<img src="images/Circuit Diagram.png">
 
 <hr>
 
