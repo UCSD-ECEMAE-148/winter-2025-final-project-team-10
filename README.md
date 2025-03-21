@@ -3,9 +3,7 @@
 ### <div align="center"> MAE 148 Final Project </div>
 #### <div align="center"> Team 10 Winter 2025 </div>
 
-<div align="center">
-    IMAGE here
-</div>
+![car_image](images/carpic.jpg)
 
 ## Table of Contents
   <ol>
