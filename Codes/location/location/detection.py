@@ -52,10 +52,14 @@ class HumanDetectionNode(Node):
         # === ROBOFLOWOAK INITIALIZATION ===
         # This creates an instance of RoboflowOak and connects to your model
         self.rf = RoboflowOak(
-            model="person-snpao",           # Model name from Roboflow
+            #model="person-snpao",
+                                            # Model name from Roboflow
+            model="person-lying-down",
             confidence=0.05,                # Confidence threshold
             overlap=0.5,                    # NMS overlap threshold
-            version="2",                    # Model version
+            #version="2",                   
+                                            # Model version
+            version="2",   
             api_key="R4jbOhEOxwSSDOBryrhH", # Your Roboflow API key
             rgb=True,                       # Whether to use RGB stream
             depth=True,                     # Whether to use depth stream
