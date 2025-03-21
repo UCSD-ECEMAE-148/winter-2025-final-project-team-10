@@ -33,7 +33,7 @@ class RecorderNode(Node):
 
         # Subscribe to the GPS fix topic
         self.create_subscription(
-            NavSatFix,
+            GPSFix,
             '/gps/fix',
             self.gps_callback,
             10
