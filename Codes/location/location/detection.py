@@ -59,7 +59,7 @@ class HumanDetectionNode(Node):
             overlap=0.5,                    # NMS overlap threshold
             #version="2",                   
                                             # Model version
-            version="2",   
+            version="1",   
             api_key="R4jbOhEOxwSSDOBryrhH", # Your Roboflow API key
             rgb=True,                       # Whether to use RGB stream
             depth=True,                     # Whether to use depth stream
