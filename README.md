@@ -56,12 +56,19 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 
 ## Accomplishments: What we have done
 * The custom model is fine-tuned with the custom dataset and trained on human detection tasks. Multiple model versions utilizing pre-trained model weights (YOLOv11, Roboflow 3.0) have their performances compared and the best one is applied using RoboflowOak API.
-* Best model performance: mAP = 81.6%, Precision = 86.1%, Recall = 72.3%. 
-* RoboflowOak API interacts with the camera and provides human detection results outside of ROS, which the script then processes and uses to publish movement commands within ROS. 
+  - Best model performance: mAP = 81.6%, Precision = 86.1%, Recall = 72.3%. 
+  - RoboflowOak API interacts with the camera and provides human detection results outside of ROS, which the script then processes and uses to publish movement commands within ROS. 
 <hr>
 
 ## Challenges
+* Faced multiple malfunctioning VESCs:
+  - First did not properly steer
+  - Second did not properly throttle
+  - Third would not turn on
+  - Fourth was borrowed from UCSD Blue on the day of the final
+* Spent too much time trying to get Docker and ROS2 running on PC's and VMs
 * 
+
 <hr>
 
 ## Final Project Videos
@@ -116,11 +123,13 @@ __Parts List__
 * 5V, 4A power supply for Jetson Nano
 
 ### __Mechanical Designs__
-
+__Camera Mount__
+![camera mount1](images/cam%20mount1.png)
+Credit: https://www.thingiverse.com/thing:5336496
 
 __Circuit Diagram__
 
-Our team made use of a select range of electronic components, primarily focusing on the OAK-D Lite camera, Jetson NANO, a GNSS board / GPS, and an additional Seeed Studio XIAO nRF52840 Sense (for IMU usage).
+Our team made use of a select range of electronic components, primarily focusing on the OAK-D Lite camera, Jetson NANO, a GNSS board / GPS.
 Our circuit assembly process was guided by a circuit diagram provided by our class TAs.
 
 <img src="images/Circuit Diagram.png">
@@ -129,17 +138,20 @@ Our circuit assembly process was guided by a circuit diagram provided by our cla
 
 ## Gantt Chart
 <div align="center">
-    <img src="images\gantt_chart.webp" height="500">
+    <img src="images/Gantt.png">
 </div>
 <hr>
 
 ## Course Deliverables
 Here are our autonomous laps as part of our class deliverables:
 
+* [3 Autonomous Laps](https://drive.google.com/file/d/1rYdKuJp95L6o8hU5gIAqILZzjU2uGJZW/view?usp=sharing) 
+* [GPS Laps](https://youtu.be/jbZKhUSmnkc?si=7ICiua8Jcp4CKKOG)
+* [Oak-D Camera Model](https://cdn.discordapp.com/attachments/1344142206776119386/1346536237007372288/IMG_3482.mov?ex=67e04618&is=67def498&hm=6a8eb74b5d8431f3bcc59a255ffcd0d7b85c87cf8b08f66f8d74673bdc5d60cd&)
 
 
 Presentations:  
-* 
+* [Final Presentation](https://docs.google.com/presentation/d/1ZoWhRLhPfD_xljGeW3dEyOw8T_ZkKze7IONw5t4ZVvc/edit?usp=sharing)
 <hr>
 
 ## Project Reproduction
