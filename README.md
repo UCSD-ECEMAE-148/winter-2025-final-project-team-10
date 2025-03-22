@@ -48,7 +48,6 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 
 <hr>
 
-
 ## Accomplishments
 * Working drivers that successfully push to topics for:
   - GPS Data
@@ -61,7 +60,6 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
     - Once we did get it to work with Galactic, even when all sensors where up, Nav2 would complain about frames and base link. Needed time to deep div
   - As a result we pivoted to this. 
     - Validated in Simulation (using mock gps goals), but ROS2 is being pedantic about QoS.
-      - Was debugging up until class time.
 * The custom model is fine-tuned with the custom dataset and trained on human detection tasks. Multiple model versions utilizing pre-trained model weights (YOLOv11, Roboflow 3.0) have their performances compared and the best one is applied using RoboflowOak API.
   - Best model performance: mAP = 81.6%, Precision = 86.1%, Recall = 72.3%. 
   - RoboflowOak API interacts with the camera and provides human detection results outside of ROS, which the script then processes and uses to publish movement commands within ROS. 
