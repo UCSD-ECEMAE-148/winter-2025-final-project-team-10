@@ -29,10 +29,18 @@
 <hr>
 
 ## Team Members
+- Max Guerrero - Embedded Software UCSD Ext (B.Sc. Comp. Physics 2021)
+- Jerry Ko (B.S Electrical Engineering)
+- Congge Xu (B.S. Computer Engineering)
+- Jamie Miller (B.Sc Aerospace Engineering)
 
 <hr>
 
 ## Abstract
+Pathfinder was envisioned as an autonomous vehicle designed to provide assistance to search and rescue personnel in remote environments.
+- Navigate GPS waypoints
+- Identify humans in need
+- Generate a map for first responders to use in rescue missions
 
 
 <hr>
