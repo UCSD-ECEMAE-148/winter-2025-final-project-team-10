@@ -56,14 +56,14 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 * Rudimentary Waypoint follower “Homegrown”
   - NAV2 did not work as expected
     - Many hours were spent troubleshooting dependencies and issues with getting it to run with Foxy.
-    - Once we did get it to work with Galactic, even when all sensors where up, Nav2 would complain about frames and base link. Needed time to deep div
-  - As a result we pivoted to this. 
-    - Validated in Simulation (using mock gps goals), but ROS2 is being pedantic about QoS.
+    - Once we did get it to work with Galactic, even when all sensors were up, Nav2 would complain about frames and base links. Needed time to deep div
+  - As a result, we pivoted to this. 
+    - Validated in Simulation (using mock GPS goals), but ROS2 is being pedantic about QoS.
 * The custom model is fine-tuned with the custom dataset and trained on human detection tasks. Multiple model versions utilizing pre-trained model weights (YOLOv11, Roboflow 3.0) have their performances compared and the best one is applied using RoboflowOak API.
   - Best model performance: mAP = 81.6%, Precision = 86.1%, Recall = 72.3%. 
   - RoboflowOak API interacts with the camera and provides human detection results outside of ROS, which the script then processes and uses to publish movement commands within ROS. 
-* Use ["MapViz"](https://swri-robotics.github.io/mapviz/) to visualize the realtime location of the robot, and click on the map to publish coordinate for the robot to follow.
-  - Could use MapViz to publish and read coordinate but the map is not showing
+* Use ["MapViz"](https://swri-robotics.github.io/mapviz/) to visualize the real-time location of the robot, and click on the map to publish coordinates for the robot to follow.
+  - Could use MapViz to publish and read coordinates but the map is not showing
 
 <hr>
 
@@ -91,9 +91,9 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 ### Homegrown WayPoint Follower
 
 ### MapViz
-  - Ros2 tool to load tile maps and display GPS coordinate inputed to the corresponding Ros2 topic.
+  - Ros2 tool to load tile maps and display GPS coordinates input to the corresponding Ros2 topic.
   - However, after trying with the built-in tile map, Google Maps, Stadia maps with working API keys, and [offline Google Map Tile map](https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite), we could not make the tile map to show on MapViz.
-  - But we did succeed to let MapViz read mock coordinate data by manually publishing data, and published coordinate by clicking on the MapViz interface.
+  - But we did succeed in letting MapViz read mock coordinate data by manually publishing data, and published coordinates by clicking on the MapViz interface.
   ![mapviz_screenshot](images/MapViz%20Screenshot.png)
 <hr>
 
@@ -130,7 +130,10 @@ __Parts List__
 
 ### __Mechanical Designs__
 __Camera Mount__
-![camera mount1](images/cam%20mount1.png)
+<div align="center">
+    <img src="images/cam%20mount1.png">
+</div>
+
 Credit: https://www.thingiverse.com/thing:5336496
 
 __Circuit Diagram__
@@ -160,7 +163,7 @@ Presentations:
 * [Final Presentation](https://docs.google.com/presentation/d/1ZoWhRLhPfD_xljGeW3dEyOw8T_ZkKze7IONw5t4ZVvc/edit?usp=sharing)
 <hr>
 
-## Troubleshooting Bring ups
+### Additional documentation: Lidar Bring ups
 ### __Lidar Setup__
 * Method 1:
 ``` 
@@ -177,7 +180,7 @@ Presentations:
   sudo chmod 777 /dev/ttyUSB0
 ```
 
- Enter launch file corresponding to ld19.launch.py and ensure that the port name is setcorrectly to USB0.
+ Enter the launch file corresponding to ld19.launch.py and ensure that the port name is set correctly to USB0.
 
  ```
   cd ~/ldlidar_ros2_ws
@@ -208,7 +211,7 @@ would be able to tell by looking at the symbol on the cord, where an arrow
 on the middle prong of the USB symbol would indicate that it can transmit
 data. Unfortunately, there’s a lot of cheap crap these days that has made
 this method unreliable. So, ensure that you can transmit data by plugging
-in any other device using a micro usb cable. Even then, some cables can
+in any other device using a micro USB cable. Even then, some cables can
 only transmit certain data, so you might be best off just buying a cable to
 be absolutely sure it works
     - If you are still having trouble connecting, ensure that you have the latest CP210x drivers for the Serial to COM bridge that is used on the lidar.
@@ -222,6 +225,98 @@ manufacturer’s website above
 
 
 <hr>
+
+
+### Additional documentation: Point one nav GPS on ROS2 Instructions
+Follow the install instructions in the GitHub, they work. (Replace humble with Foxy)
+
+GitHub - PointOneNav/ros2-fusion-engine-driver: ROS 2 driver for Point One FusionEngine protocol and
+devices.
+
+
+```
+# Need to run with TCP port (Run this in host machine since TCP traffic is bridged from host to container)
+# Make sure you are not in any other virtual environment (deactivate if so)
+mamba activate py37
+cd ~/quectel/p1_runner
+python3 bin/runner.py --device-id yZ952ezI --polaris 3gGOrFMX --device-port /dev/ttyUSB0 --tcp
+12345
+```
+* Note: You may need to change the USB* value depending on which USB* your GPS
+enumerated on
+
+```
+# Inside the container run this ros package and node. You should get an acknowledgment that the TCP
+connection to the specified port was correct #
+# source_ros2
+# cd /home/projects/ros2_ws/src/ros2-fusion-engine-driver
+# source install/setup.bash
+# ros2 run fusion-engine-driver fusion_engine_ros_driver --ros-args -p connection_type:=tcp -p
+tcp_ip:=localhost -p tcp_port:=12345
+```
+<div align="center">
+    <img src="images/fusionEngine.png">
+</div>
+```
+# On the container but within another terminal verify that the node is running
+$ ros2 node list
+```
+<div align="center">
+    <img src="images/ros2nodelist.png">
+</div>
+
+Run within container (different terminal)
+Verify you are getting traffic below:
+<div align="center">
+  <img src = "images/trafficverification.png">
+</div>
+Needed to do this step to get the ROS rates or else data wouldn't be received properly on
+ros end
+<div align="center">
+  <img src = "images/getROSRate.png">
+</div>
+Now the data was received properly!
+<div align="center">
+  <img src = "images/receivedData.png">
+</div>
+
+Serial and rtk:
+```
+ros2 launch ntrip_client ntrip_client_launch.py username:=yZ952ezI password:=3gGOrFMX
+```
+
+### Additional Documentation: Artemis IMU Bring Up
+This sensor pkg is actually already built upon creating a new robocar container we obtained in this class from the
+Robocar framework documentation MAE 148
+First, make sure you have identified which USB* the Artemis IMU has enumerated.
+Once that is done, edit the device location here:
+
+/src/ucsd_robocar_hub2/ucsd_robocar_sensor2_pkg/config/my_razor.yaml
+
+Rebuild for this to take effect
+```
+source_ros2
+Build_ros2
+ros2 launch ucsd_robocar_sensor2_pkg imu_artemis.launch.py
+```
+* NOTE: Having an SD card inserted causes an error when reading the data from the serial port, so make
+sure it is not inserted
+
+
+### Additional Documentation: VESC with Odometry Publishing
+```
+gedit src/ucsd_robocar_hub2/ucsd_robocar_nav2_pkg/config/car_config.yaml
+```
+Then set oakd to zero and vesc with odom to 1
+```
+gedit src/ucsd_robocar_hub2/ucsd_robocar_nav2_pkg/config/node_config.yaml
+```
+Then set all components to 1, set f1nth node to 1, and manual joy to 1 (if you want joystick teleop to test vehicle is working properly)
+```
+source_ros2
+Build_ros2
+ros2 launch ucsd_robocar_nav2_pkg all_nodes.launch.py
+```
 
 ## Acknowledgements
 TODO
