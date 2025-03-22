@@ -40,7 +40,7 @@
 Pathfinder was envisioned as an autonomous vehicle designed to provide assistance to search and rescue personnel in remote environments.
 - Navigate GPS waypoints
 - Identify humans in need
-- Generate a map for first responders to use in rescue missions
+- Generate a map for first responders to use in rescue missions.
 
 
 <hr>
@@ -65,9 +65,8 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 <hr>
 
 ## Final Project Videos
-**Click** any of the clips below to **reroute to the video**. 
+[![Watch the video](https://img.youtube.com/vi/18XZ_vilVA8/maxresdefault.jpg)](https://youtu.be/18XZ_vilVA8)
 
-#### Demo Videos (replace the img src and link)
 
 
 
@@ -137,7 +136,7 @@ Our circuit assembly process was guided by a circuit diagram provided by our cla
 ## Course Deliverables
 Here are our autonomous laps as part of our class deliverables:
 
-* 
+
 
 Presentations:  
 * 
