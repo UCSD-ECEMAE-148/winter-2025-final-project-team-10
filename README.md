@@ -13,6 +13,9 @@
     <li><a href="#challenges">Challenges</a></li>
     <li><a href="#final-project-videos">Final Project Videos</a></li>
     <li><a href="#software">Software</a></li>
+    <ul>
+            <li><a href="#homegrown-waypoint-follower">Homegrown WayPoint Follower</a></li>
+    </ul>
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
     <li><a href="#course-deliverables">Course Deliverables</a></li>
@@ -85,8 +88,7 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 <hr>
 
 ## Software
-
-### Overall Architecture
+### Homegrown WayPoint Follower
 
 ### MapViz
   - Ros2 tool to load tile maps and display GPS coordinate inputed to the corresponding Ros2 topic.
