@@ -19,9 +19,10 @@
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
     <li><a href="#course-deliverables">Course Deliverables</a></li>
-    <li><a href="#troubleshooting-bring-ups">Troubleshooting Bring ups</a></li>
+    <li><a href="#additional-documentation">Additional Documentation</a></li>
         <ul>
             <li><a href="#lidar-setup">Lidar Setup</a></li>
+            <li><a href="#point-one-nav-gps-on-ros2-instructions">Point one nav GPS on ROS2 Instructions</a></li>
             <li><a href="#obstacle-avoidance">Obstacle Avoidance</a></li>
         </ul>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -163,7 +164,7 @@ Presentations:
 * [Final Presentation](https://docs.google.com/presentation/d/1ZoWhRLhPfD_xljGeW3dEyOw8T_ZkKze7IONw5t4ZVvc/edit?usp=sharing)
 <hr>
 
-### Additional documentation: Lidar Bring ups
+### Additional Documentation
 ### __Lidar Setup__
 * Method 1:
 ``` 
@@ -224,10 +225,8 @@ but these are out of date and you should use the ones found on the
 manufacturer’s website above
 
 
-<hr>
 
-
-### Additional documentation: Point one nav GPS on ROS2 Instructions
+### __Point one nav GPS on ROS2 Instructions__
 Follow the install instructions in the GitHub, they work. (Replace humble with Foxy)
 
 GitHub - PointOneNav/ros2-fusion-engine-driver: ROS 2 driver for Point One FusionEngine protocol and
