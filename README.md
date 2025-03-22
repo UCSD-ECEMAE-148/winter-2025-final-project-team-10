@@ -21,7 +21,11 @@
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
     <li><a href="#course-deliverables">Course Deliverables</a></li>
-    <li><a href="#project-reproduction">Project Reproduction</a></li>
+    <li><a href="#troubleshooting-bring-ups">Troubleshooting Bring ups</a></li>
+        <ul>
+            <li><a href="#lidar-setup">Lidar Setup</a></li>
+            <li><a href="#obstacle-avoidance">Obstacle Avoidance</a></li>
+        </ul>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contacts">Contacts</a></li>
   </ol>
@@ -154,8 +158,65 @@ Presentations:
 * [Final Presentation](https://docs.google.com/presentation/d/1ZoWhRLhPfD_xljGeW3dEyOw8T_ZkKze7IONw5t4ZVvc/edit?usp=sharing)
 <hr>
 
-## Project Reproduction
-If you are interested in reproducing our project, here are a few steps to get you started with our repo:
+## Troubleshooting Bring ups
+### __Lidar Setup__
+* Method 1:
+``` 
+  source_ros2
+  ros2 launch ucsd_robocar_sensor2_pkg lidar_ld06.launch.py
+```
+* Method 2:
+```
+  cd ~
+  mkdir -p ldlidar_ros2_ws/src
+  cd ldlidar_ros2_ws/src
+  git clone https://github.com/ldrobotSensorTeam/ldlidar_stl_ros2.git
+  cd ~/ldlidar_ros2_ws
+  sudo chmod 777 /dev/ttyUSB0
+```
+
+ Enter launch file corresponding to ld19.launch.py and ensure that the port name is setcorrectly to USB0.
+
+ ```
+  cd ~/ldlidar_ros2_ws
+  colcon build
+  source install/setup.bash
+ ```
+ To make the whole thing permanent for new windows you can do:
+```
+echo source ~/ldlidar_ros2_ws/install/setup.bash >> ~/.bashrc
+source ~/.bashrc
+```
+__To start the node:__
+```
+cd ~/ldlidar_ros2_ws
+ros2 launch ldlidar_stl_ros2 ld19.launch.py
+```
+__To Visualize:__
+
+Two methods
+1. After launching the node, do `<rviz2>`, within the window open up the file in the
+readme section of ldlidar_ros2_ws called rviz2 (should be inside a folder called
+rviz2)
+2. When launching the node, do `<ros2 launch ldlidar_stl_ros2viewer_ld19.launch.py>` instead
+Troubleshooting:
+*  If on a PC and trying to get the lidar to connect ensure
+    - Your micro-usb cable can actually transmit data. In ye olden days you
+would be able to tell by looking at the symbol on the cord, where an arrow
+on the middle prong of the USB symbol would indicate that it can transmit
+data. Unfortunately, there’s a lot of cheap crap these days that has made
+this method unreliable. So, ensure that you can transmit data by plugging
+in any other device using a micro usb cable. Even then, some cables can
+only transmit certain data, so you might be best off just buying a cable to
+be absolutely sure it works
+    - If you are still having trouble connecting, ensure that you have the latest CP210x drivers for the Serial to COM bridge that is used on the lidar.
+Found here:
+https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads
+    - Ensure that the Lidar is being read by your computer before trying to use it in a VM. This comes with the LDLidar development kit found here:
+https://files.waveshare.com/upload/a/a5/Ld_desktop_V2.3.12.zip
+* Note, this kit will direct you to a download for the CP210x drivers,
+but these are out of date and you should use the ones found on the
+manufacturer’s website above
 
 
 <hr>
