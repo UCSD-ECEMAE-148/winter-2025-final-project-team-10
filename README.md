@@ -6,7 +6,8 @@
 ![car_image](images/carpic.jpg)
 
 ## Table of Contents
-  <ol>
+## Table of Contents
+<ol>
     <li><a href="#team-members">Team Members</a></li>
     <li><a href="#abstract">Abstract</a></li>
     <li><a href="#accomplishments">Accomplishments</a></li>
@@ -14,21 +15,21 @@
     <li><a href="#final-project-videos">Final Project Videos</a></li>
     <li><a href="#software">Software</a></li>
     <ul>
-            <li><a href="#homegrown-waypoint-follower">Homegrown WayPoint Follower</a></li>
+        <li><a href="#homegrown-waypoint-follower">Homegrown WayPoint Follower</a></li>
     </ul>
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
     <li><a href="#course-deliverables">Course Deliverables</a></li>
     <li><a href="#additional-documentation">Additional Documentation</a></li>
-        <ul>
-            <li><a href="#lidar-setup">Lidar Setup</a></li>
-            <li><a href="#point-one-nav-gps-on-ros2-instructions">Point one nav GPS on ROS2 Instructions</a></li>
-            <li><a href="#artemis-imu-bring-up">Artemis IMU Bring Up</a></li>
-            <li><a href="#vesc-with-odometry-publishing">VESC with Odometry Publishing</a></li>
-        </ul>
+    <ul>
+        <li><a href="#lidar-setup">Lidar Setup</a></li>
+        <li><a href="#point-one-nav-gps-on-ros2-instructions">Point One Nav GPS on ROS2 Instructions</a></li>
+        <li><a href="#artemis-imu-bring-up">Artemis IMU Bring Up</a></li>
+        <li><a href="#vesc-with-odometry-publishing">VESC with Odometry Publishing</a></li>
+    </ul>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contacts">Contacts</a></li>
-  </ol>
+</ol>
 
 <hr>
 
