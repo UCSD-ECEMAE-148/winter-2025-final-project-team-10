@@ -23,7 +23,8 @@
         <ul>
             <li><a href="#lidar-setup">Lidar Setup</a></li>
             <li><a href="#point-one-nav-gps-on-ros2-instructions">Point one nav GPS on ROS2 Instructions</a></li>
-            <li><a href="#obstacle-avoidance">Obstacle Avoidance</a></li>
+            <li><a href="#artemis-imu-bring-up">Artemis IMU Bring Up</a></li>
+            <li><a href="#vesc-with-odometry-publishing">VESC with Odometry Publishing</a></li>
         </ul>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contacts">Contacts</a></li>
@@ -284,7 +285,7 @@ Serial and rtk:
 ros2 launch ntrip_client ntrip_client_launch.py username:=yZ952ezI password:=3gGOrFMX
 ```
 
-### Additional Documentation: Artemis IMU Bring Up
+### Artemis IMU Bring Up
 This sensor pkg is actually already built upon creating a new robocar container we obtained in this class from the
 Robocar framework documentation MAE 148
 First, make sure you have identified which USB* the Artemis IMU has enumerated.
@@ -302,7 +303,7 @@ ros2 launch ucsd_robocar_sensor2_pkg imu_artemis.launch.py
 sure it is not inserted
 
 
-### Additional Documentation: VESC with Odometry Publishing
+### VESC with Odometry Publishing
 ```
 gedit src/ucsd_robocar_hub2/ucsd_robocar_nav2_pkg/config/car_config.yaml
 ```
@@ -318,11 +319,10 @@ ros2 launch ucsd_robocar_nav2_pkg all_nodes.launch.py
 ```
 
 ## Acknowledgements
-TODO
+Thanks to Professor Jack Silberman and TAs including Alexander and Winston for providing great advices to help complete this project.
 
 **Programs Reference:**
 * [UCSD Robocar Framework](https://gitlab.com/ucsd_robocar2)
-* And whatever we used
 
 
 README.md Format, reference to [winter-2024-final-project-team-7](https://github.com/UCSD-ECEMAE-148/winter-2024-final-project-team-7)
