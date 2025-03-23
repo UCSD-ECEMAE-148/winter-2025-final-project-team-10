@@ -136,7 +136,7 @@ __Camera Mount__
     <img src="Final Cad/Screenshot 2025-03-22 171059.png">
 </div>
 
-Credit: https://www.thingiverse.com/thing:5336496
+Credit: [Camera Holder](https://www.thingiverse.com/thing:5336496)
 
 __Circuit Diagram__
 
@@ -330,5 +330,8 @@ README.md Format, reference to [winter-2024-final-project-team-7](https://github
 <hr>
 
 ## Contacts
+* Max Guerrero: MaxGuerrero94@gmail.com
+* Jamie Miller: jlm005@ucsd.edu
+* Congge Xu: cox002@ucsd.edu
+* Jerry Ko: pko@ucsd.edu
 
-* 
