@@ -61,7 +61,9 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
     - Many hours were spent troubleshooting dependencies and issues with getting it to run with Foxy.
     - Once we did get it to work with Galactic, even when all sensors were up, Nav2 would complain about frames and base links. Needed time to deep div
   - As a result, we pivoted to this. 
-    - Validated in Simulation (using mock GPS goals), but ROS2 is being pedantic about QoS.
+    - Validated in Simulation (using mock GPS goals).
+    - Vehicle actuates steering properly and once has reached trajectory within 3m, it considers goal completed.
+    - This was validaded, but only up to a certain point due to deffective VESC.
 * The custom model is fine-tuned with the custom dataset and trained on human detection tasks. Multiple model versions utilizing pre-trained model weights (YOLOv11, Roboflow 3.0) have their performances compared and the best one is applied using RoboflowOak API.
   - Best model performance: mAP = 81.6%, Precision = 86.1%, Recall = 72.3%. 
   - RoboflowOak API interacts with the camera and provides human detection results outside of ROS, which the script then processes and uses to publish movement commands within ROS. 
@@ -92,6 +94,23 @@ Pathfinder was envisioned as an autonomous vehicle designed to provide assistanc
 
 ## Software
 ### Homegrown WayPoint Follower
+  - Launch GPS (see point one nav gps section below and follow tese instructions first).
+  - Launch VESC Odom first (see instructions below on this)
+  - cd my_gps_ackermann
+  - colcon build
+  - source install/setup.bash
+  - ros2 launch my_gps_ackermann gps_ackermann_launch.py
+  - Publish the goal from ROS2 CLI:
+    ros2 topic pub /gps/goal gps_msgs/msg/GPSFix "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: 'gps'}, status: {status: 0, motion_source: 0, orientation_source: 0, position_source: 0}, latitude: 33.1029, longitude: -117.0677, altitude: 0.0, track: 0.0, speed: 0.0, climb: 0.0, pitch: 0.0, roll: 0.0, dip: 0.0, time: 0.0, gdop: 0.0, pdop: 0.0, hdop: 0.0, vdop: 0.0, tdop: 0.0, err: 0.0, err_horz: 0.0, err_vert: 0.0, err_track: 0.0, err_speed: 0.0, err_climb: 0.0, err_time: 0.0, err_pitch: 0.0, err_roll: 0.0, err_dip: 0.0, position_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], position_covariance_type: 0}"
+
+### Nav2 Cartographer to generate and save map
+  - Launch Lidar and VESC Odom on robot first (see VESC and Lidar sections below for these instructions)
+  - cd cartographer/cartographer
+  - colcon build
+  - source install/setup.bash
+  - ros2 launch cartographer cartographer.launch.py
+  - Open up a second terminal with rviz2 for visualization of /map and /scan topics
+
 
 ### MapViz
   - Ros2 tool to load tile maps and display GPS coordinates input to the corresponding Ros2 topic.
