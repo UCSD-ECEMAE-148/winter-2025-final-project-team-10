@@ -133,7 +133,7 @@ __Parts List__
 ### __Mechanical Designs__
 __Camera Mount__
 <div align="center">
-    <img src="images/cam%20mount1.png">
+    <img src="Final Cad/Screenshot 2025-03-22 171059.png">
 </div>
 
 Credit: https://www.thingiverse.com/thing:5336496
